@@ -1,45 +1,39 @@
+/*
+    I stored each element in the stack as a pair<int, int>.
+
+    The first value stores the actual element, and the second value stores
+    the minimum element in the stack up to that point, which I compute as
+    min(currentValue, st.top().second).
+
+    This way, I can always get the minimum element in O(1) time.
+*/
+
 class MinStack {
 public:
-    stack<long long> st;
-    long long mini = INT_MAX;
-
+    stack<pair<int, int>> st;
     MinStack() {
         
     }
     
     void push(int value) {
         if(st.empty()){
-            st.push(value);
-            mini = value;
-        }
+            st.push({value, value});
+        } 
         else{
-            if(value < mini){
-                st.push(2LL*value - mini);
-                mini = value;
-            } 
-            else st.push(value);
+            st.push({value, min(value, st.top().second)});
         }
     }
     
     void pop() {
-        if(st.empty()) return;
-        long long x = st.top();
         st.pop();
-        if(x < mini){
-            mini = 2LL*mini - x;
-        }
     }
     
     int top() {
-        if(st.empty()) return 0;
-        long long x = st.top();
-        if(x < mini){
-            return mini;
-        }return x;
+        return st.top().first;
     }
     
     int getMin() {
-        return mini;
+        return st.top().second;
     }
 };
 
