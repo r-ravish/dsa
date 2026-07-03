@@ -8,12 +8,7 @@ public:
             check_s+=s[i];
         }
 
-        if(s==check_s){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return s==check_s;
 
     }
 };
