@@ -6,7 +6,8 @@ public:
         stack<int> st;
 
         for(int i=2*n-1; i>=0; i--){
-            while(!st.empty() && st.top() <= nums[i%n]){
+            int x = nums[i%n];
+            while(!st.empty() && st.top() <= x){
                 st.pop();
             }
 
@@ -16,7 +17,7 @@ public:
                 }else{
                     ans[i] = st.top();
                 }
-            }st.push(nums[i%n]);
+            }st.push(x);
         }
 
         return ans;
