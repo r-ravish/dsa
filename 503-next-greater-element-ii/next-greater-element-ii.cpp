@@ -18,7 +18,6 @@ public:
             }st.push(nums[i%nums.size()]);
         }
 
-        // reverse(ans.begin(), ans.end());
         return ans;
     }
 };
