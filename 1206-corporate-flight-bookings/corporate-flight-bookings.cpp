@@ -7,7 +7,7 @@ public:
             int right = bookings[i][1];
             int add = bookings[i][2];
 
-            while(left<=right ){
+            while(left<=right && right <= n){
                 answer[left-1]+=add;
                 left++;
             }
