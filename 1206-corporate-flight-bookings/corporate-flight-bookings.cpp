@@ -7,10 +7,16 @@ public:
             int right = bookings[i][1];
             int add = bookings[i][2];
 
-            while(left<=right && right <= n){
-                answer[left-1]+=add;
-                left++;
+            answer[left-1]+=add;
+            if(right < n){
+                answer[right]-=add;
             }
+            
+
+        }
+
+        for(int i=1; i<answer.size(); i++){
+            answer[i]+=answer[i-1];
         }
 
         return answer;
