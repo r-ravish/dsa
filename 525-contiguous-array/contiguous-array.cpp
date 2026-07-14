@@ -4,8 +4,9 @@ public:
         int sum=0;
         unordered_map<int,int> mp;
         int out=0;
+        int n = nums.size();
         mp[0] = -1;
-        for(int i=0; i<nums.size(); i++){
+        for(int i=0; i<n; i++){
             if(nums[i] == 0){
                 sum-=1;
             }else{
