@@ -8,9 +8,7 @@ public:
             sum+=nums[i];
             if(mp.contains(sum%k) && i-mp[sum%k] >= 2){
                 return true;
-            }
-
-            if(!mp.contains(sum%k)){
+            }else if(!mp.contains(sum%k)){
                 mp[sum%k] = i;
             }
         }
