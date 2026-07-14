@@ -12,9 +12,8 @@ public:
                 sum+=1;
             }
 
-            if(mp.contains(sum)){
-                out = max(out, i - mp[sum]);
-
+            if(mp.contains(sum) && i-mp[sum] >= out){
+                out = i-mp[sum];
             }else if(!mp.contains(sum)){
                 mp[sum] = i;
             }
