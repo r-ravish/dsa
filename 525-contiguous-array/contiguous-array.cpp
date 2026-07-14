@@ -14,9 +14,7 @@ public:
 
             if(mp.contains(sum) && i-mp[sum] >= out){
                 out = i-mp[sum];
-            }
-
-            if(!mp.contains(sum)){
+            }else if(!mp.contains(sum)){
                 mp[sum] = i;
             }
         }
