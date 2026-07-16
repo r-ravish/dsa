@@ -13,10 +13,8 @@ public:
                 st.erase(s[left]);
                 left++;
             }
-            if(!st.contains(s[i])){
-                st.insert(s[i]);
-                out=max(i-left+1, out);
-            }
+            st.insert(s[i]);
+            out=max(i-left+1, out);
         }
 
         return out;
