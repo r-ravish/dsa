@@ -17,9 +17,8 @@ public:
                 }
                 left++;
             }
-            if(i-left+1 == k){
-                ans=max(ans,cnt);
-            }
+            
+            ans=max(ans,cnt);
         }
 
         return ans;
