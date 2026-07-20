@@ -39,6 +39,6 @@ public:
             int right = nse[i] - i;
             total = (total + (1LL*left*right*arr[i])%mod)%mod;
         } 
-        return total%mod;
+        return total;
     }
 };
