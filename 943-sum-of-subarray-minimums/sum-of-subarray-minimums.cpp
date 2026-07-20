@@ -19,7 +19,7 @@ public:
         
         vector<int> pse(n, -1);
         st = stack<int>();
-        for(int i = 0; i<arr.size(); i++){
+        for(int i = 0; i<n; i++){
             while(!st.empty() && arr[st.top()] > arr[i]){
                 st.pop();
             }
@@ -34,7 +34,7 @@ public:
 
         int mod = 1e9 + 7;
         long long total = 0;
-        for(int i=0; i<arr.size(); i++){
+        for(int i=0; i<n; i++){
             int left = i - pse[i];
             int right = nse[i] - i;
             total = (total + (1LL*left*right*arr[i])%mod)%mod;
