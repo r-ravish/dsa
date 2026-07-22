@@ -8,11 +8,11 @@ public:
         string out = "";
         stack<char> st;
         for(int i=0; i<n; i++){
-            while(!st.empty() && st.top() > int(num[i]) && k>0){
+            while(!st.empty() && st.top() > num[i] && k>0){
                 st.pop();
                 k--;
             }
-            st.push(int(num[i]));
+            st.push(num[i]);
         }
 
         while(k>0 && !st.empty()){
