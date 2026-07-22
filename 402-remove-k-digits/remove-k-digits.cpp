@@ -28,12 +28,14 @@ public:
 
         reverse(res.begin(), res.end());
         
+        // logix ends edge cases starts
+
         int s = res.size();
         int z = 0;
         while(res[z] == '0'){
             z++;
         }
-
+    
         int a = 0;
         int count=0;
         while(a != res.size()){
