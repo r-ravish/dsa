@@ -38,13 +38,15 @@ public:
     
         int a = 0;
         int count=0;
-        while(a != res.size()){
-            if(res[a] == '0'){
-                count++;
-            }else{
-                break;
+        if(res[0] == '0'){
+            while(a != res.size()){
+                if(res[a] == '0'){
+                    count++;
+                }else{
+                    break;
+                }
+                a++;
             }
-            a++;
         }
 
         if(count==res.size()){
