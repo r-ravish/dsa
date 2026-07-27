@@ -1,18 +1,18 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int,int> mp;
+        unordered_map<int,int> mpp;
         int sum=0;
-        int count=0;
-        mp[0]=1; // Why do we need this? Try using [3] as an example with k = 3 
+        int ans=0;
+        mpp[0] = 1;
         for(int i=0; i<nums.size(); i++){
             sum+=nums[i];
-            if(mp.contains(sum-k)){
-                count+=mp[sum-k];
+            if(mpp.contains(sum-k)){
+                ans+=mpp[sum-k];
             }
-            mp[sum]++;
+            mpp[sum]++;
         }
 
-        return count;
+        return ans;
     }
 };
