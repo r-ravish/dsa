@@ -15,13 +15,15 @@ public:
             if(i-left+1 - maxfreq <= k){
                 maxLen = max(maxLen, i-left+1);
             }else{
-                while(i-left+1 - maxfreq > k){
-                    mpp[s[left]]--;
-                    if(mpp[s[left]] == 0){
-                        mpp.erase(s[left]);
-                    }
-                    left++;
-                }
+                // while(i-left+1 - maxfreq > k){
+                //     mpp[s[left]]--;
+                //     if(mpp[s[left]] == 0){
+                //         mpp.erase(s[left]); 
+                //     }
+                //     left++;
+                // }
+                mpp[s[left]]--;
+                left++;
             }
         }
         return maxLen;
