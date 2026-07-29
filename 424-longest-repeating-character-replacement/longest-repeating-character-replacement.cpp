@@ -25,7 +25,7 @@ public:
                 mpp[s[left]]--;
                 if(mpp[s[left]] == 0){
                         mpp.erase(s[left]); 
-                    }
+                }
                 left++;
             }
         }
