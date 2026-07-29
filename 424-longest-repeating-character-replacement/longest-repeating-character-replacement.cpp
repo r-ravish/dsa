@@ -1,12 +1,13 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
+        int n = s.size();
         unordered_map<int, int> mpp;
         int maxfreq = INT_MIN;
         int left = 0;
         int maxLen = 0;
         
-        for(int i=0; i<s.size(); i++){
+        for(int i=0; i<n; i++){
             mpp[s[i]]++;
             if(mpp[s[i]] > maxfreq){
                 maxfreq = mpp[s[i]];
