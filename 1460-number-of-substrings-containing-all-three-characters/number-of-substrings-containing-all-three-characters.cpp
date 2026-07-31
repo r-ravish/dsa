@@ -8,8 +8,9 @@ public:
 
     int numberOfSubstrings(string s) {
         int ans = 0;
+        int n = s.size();
         unordered_map<char, int> mpp = {{'a', -1}, {'b', -1}, {'c', -1}};
-        for(int i=0; i<s.size(); i++){
+        for(int i=0; i<n; i++){
             mpp[s[i]] = i;
             int a = mpp['a'];
             int b = mpp['b'];
