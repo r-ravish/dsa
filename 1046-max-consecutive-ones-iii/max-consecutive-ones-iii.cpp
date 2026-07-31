@@ -9,15 +9,13 @@ public:
                 zeros++;
             }
 
-            if(zeros <= k){
-                maxLen = max(maxLen, i-left+1);
+            while(zeros > k){
+                if(nums[left] == 0) zeros--;
+                left++;
             }
 
-            while(zeros > k){
-                if(nums[left] == 0){
-                    zeros--;
-                }
-                left++;
+            if(zeros <= k){
+                maxLen = max(maxLen, i-left+1);
             }
         }
 
