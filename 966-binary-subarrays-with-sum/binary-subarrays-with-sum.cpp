@@ -1,25 +1,26 @@
 class Solution {
 public:
-    int goalCalculation(vector<int>& nums, int goal){
+    int lessthanEqual(vector<int>& nums, int goal){
         if(goal < 0) return 0;
-        int sum=0;
+        int sum = 0;
         int left = 0;
         int ans = 0;
-
         for(int i=0; i<nums.size(); i++){
             sum+=nums[i];
             while(sum > goal){
                 sum-=nums[left];
                 left++;
             }
-            ans+=(i-left+1);
+            if(sum <= goal){
+                ans+=(i-left+1);
+            }
         }
-
         return ans;
     }
+
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        int a = goalCalculation(nums,goal);
-        int b = goalCalculation(nums,goal-1);
+        int a = lessthanEqual(nums, goal);
+        int b = lessthanEqual(nums, goal-1);
 
         return a-b;
     }
