@@ -11,6 +11,7 @@ public:
         unordered_map<char, int> mpp = {{'a', -1}, {'b', -1}, {'c', -1}};
         for(int i=0; i<s.size(); i++){
             mpp[s[i]] = i;
+            
             if(mpp['a'] != -1 && mpp['b'] != -1 && mpp['c'] != -1){
                 // int temp = mini(mpp['a'], mpp['b'], mpp['c']);
                 int temp = min({mpp['a'], mpp['b'], mpp['c']});
