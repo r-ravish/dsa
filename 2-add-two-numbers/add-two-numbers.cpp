@@ -36,7 +36,7 @@ public:
 
             ListNode* temp = new ListNode(sum, nullptr);
             ans->next = temp;
-            ans = ans->next;
+            ans = temp;
             l1=l1->next;
         }
 
@@ -47,14 +47,14 @@ public:
 
             ListNode* temp = new ListNode(sum, nullptr);
             ans->next = temp;
-            ans = ans->next;
+            ans = temp;
             l2=l2->next;
         }
 
         if(carry > 0){
             ListNode* temp = new ListNode(carry, nullptr);
             ans->next = temp;
-            ans = ans->next;
+            ans = temp;
         }
             
 
