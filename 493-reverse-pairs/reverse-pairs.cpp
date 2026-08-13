@@ -1,11 +1,12 @@
 class Solution {
 public:
+    int cnt=0;
     void merge(vector<int>& nums, int low, int mid, int high){
-        vector<int> temp;
         int left = low;
         int right = mid+1;
+        vector<int> temp;
 
-        while(left <= mid && right <= high){
+        while(left<=mid && right<=high){
             if(nums[left] < nums[right]){
                 temp.push_back(nums[left]);
                 left++;
@@ -19,7 +20,6 @@ public:
             temp.push_back(nums[left]);
             left++;
         }
-
         while(right <= high){
             temp.push_back(nums[right]);
             right++;
@@ -28,39 +28,36 @@ public:
         for(int i=low; i<=high; i++){
             nums[i] = temp[i-low];
         }
+
     }
 
-    int findCount(vector<int>& nums, int low, int mid, int high){
+    void findCount(vector<int>& nums, int low, int mid, int high){
         int right = mid+1;
-        int cnt = 0;
         for(int i=low; i<=mid; i++){
-            while(right <= high && nums[i] > 2LL*nums[right]){
+            while(right<=high && nums[i] > 2LL*nums[right]){
                 right++;
             }
             cnt+=(right-(mid+1));
         }
-
-        return cnt;
     }
 
-    int divide(vector<int>& nums, int low, int high){
-        int cnt = 0;
-
-        if(low>=high){
-            return cnt;
+    void divide(vector<int>& nums, int low, int high){
+        if(low >= high){
+            return;
         }
-
+        
         int mid = low + (high-low)/2;
-        cnt+=divide(nums, low, mid);
-        cnt+=divide(nums, mid+1, high);
-        cnt+=findCount(nums, low, mid, high);
-        merge(nums, low, mid, high);
 
-        return cnt;
+        divide(nums, low, mid);
+        divide(nums, mid+1, high);
+        findCount(nums, low, mid, high);
+        merge(nums, low, mid, high);
     }
 
     int reversePairs(vector<int>& nums) {
         int n = nums.size();
-        return divide(nums, 0, n-1);
+        divide(nums, 0, n-1);
+
+        return cnt;
     }
 };
