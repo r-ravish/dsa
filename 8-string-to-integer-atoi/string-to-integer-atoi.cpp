@@ -18,7 +18,7 @@ public:
         return ans;
     }
 
-    string Atoi(string s, int i){        
+    string Atoi(string s, int i){   
         if(i == s.size()){
             return ans;
         }
