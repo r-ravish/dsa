@@ -1,12 +1,12 @@
 class Solution {
 public:
-    int cnt=0;
+    int cnt = 0;
     void merge(vector<int>& nums, int low, int mid, int high){
         int left = low;
         int right = mid+1;
         vector<int> temp;
 
-        while(left<=mid && right<=high){
+        while(left <= mid && right <= high){
             if(nums[left] < nums[right]){
                 temp.push_back(nums[left]);
                 left++;
@@ -18,17 +18,16 @@ public:
 
         while(left <= mid){
             temp.push_back(nums[left]);
-            left++;
+            left++;            
         }
         while(right <= high){
             temp.push_back(nums[right]);
-            right++;
+            right++;            
         }
 
         for(int i=low; i<=high; i++){
             nums[i] = temp[i-low];
         }
-
     }
 
     void findCount(vector<int>& nums, int low, int mid, int high){
@@ -40,6 +39,7 @@ public:
             cnt+=(right-(mid+1));
         }
     }
+
 
     void divide(vector<int>& nums, int low, int high){
         if(low >= high){
@@ -57,7 +57,6 @@ public:
     int reversePairs(vector<int>& nums) {
         int n = nums.size();
         divide(nums, 0, n-1);
-
         return cnt;
     }
 };
